@@ -1,16 +1,29 @@
 import Head from "next/head";
+import { Link } from "../components/Link/Link";
 
 const Home = () => (
-  <div className="flex justify-center">
+  <>
     <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>Maurizio Pireddu | Loves clean code and dirty motorcycles</title>
     </Head>
-
-    <div className="mt-4 p-4 w-1/4 rounded bg-blue-300 text-center">
-      <p className="text-blue-600">This should be very blue.</p>
-    </div>
-  </div>
+    <main className="flex h-screen text-6xl font-semibold">
+      <div className="m-auto">
+        <h1>
+          Maurizio Pireddu
+          <br />
+          loves{" "}
+          <Link href="/clean-code" className="text-primary">
+            clean code
+          </Link>
+          <br />
+          and{" "}
+          <Link href="/dirty-motorcycles" className="text-blue-400">
+            dirty motorcycles.
+          </Link>
+        </h1>
+      </div>
+    </main>
+  </>
 );
 
 export default Home;
