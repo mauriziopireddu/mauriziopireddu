@@ -1,12 +1,13 @@
 import Head from "next/head";
-import { Link } from "../components/Link/Link";
+import { Link } from "components/Link";
+import { Flex } from "components/Flex";
 
 const Home = () => (
   <>
     <Head>
       <title>Maurizio Pireddu | Loves clean code and dirty motorcycles</title>
     </Head>
-    <main className="flex h-screen text-6xl font-semibold">
+    <Flex as="main" className="h-screen text-6xl font-semibold leading-tight">
       <div className="m-auto">
         <h1>
           Maurizio Pireddu
@@ -18,11 +19,12 @@ const Home = () => (
           <br />
           and{" "}
           <Link href="/dirty-motorcycles" className="text-blue-400">
-            dirty motorcycles.
+            dirty motorcycles
           </Link>
+          .
         </h1>
       </div>
-    </main>
+    </Flex>
   </>
 );
 
