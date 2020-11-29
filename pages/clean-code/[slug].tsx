@@ -4,82 +4,68 @@ import ErrorPage from "next/error";
 import { getPostBySlug, getAllPosts } from "lib/api";
 import Head from "next/head";
 
-import markdownToHtml from "lib/markdownToHtml";
-import { PostType } from "types";
+import { markdownToHtml } from "lib/markdownToHtml";
+import { Post } from "types";
 import { Body } from "components/Post";
+import { Topics } from "types/topics";
 
 type Props = {
-  post: PostType;
-  morePosts: PostType[];
-  preview?: boolean;
+  post: Post;
 };
 
-const Post = ({ post, morePosts, preview }: Props) => {
+const Article: React.FC<Props> = ({ post }) => {
   const router = useRouter();
-  console.log(post);
-  if (!router.isFallback && !post?.slug) {
+  const isLoading = router.isFallback;
+
+  if (isLoading) {
+    return <p>Loading…</p>;
+  }
+
+  if (!post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
-    <>
-      {router.isFallback ? (
-        <p>Loading…</p>
-      ) : (
-        <>
-          <article className="mb-32">
-            <Head>
-              <title>{post.title}</title>
-              {/* <meta property="og:image" content={post.ogImage.url} /> */}
-            </Head>
-            <Body>{post.content}</Body>
-          </article>
-        </>
-      )}
-    </>
+    <article className="prose">
+      <Head>
+        <title>{post.title}</title>
+      </Head>
+      <Body>{post.content}</Body>
+    </article>
   );
 };
 
-export default Post;
+export default Article;
 
 type Params = {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 };
 
-export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
+export const getStaticProps = async ({ params }: Params) => {
+  const post = getPostBySlug(Topics.CleanCode, params.slug, [
     "title",
     "date",
     "slug",
-    "author",
     "content",
-    "ogImage",
-    "coverImage",
   ]);
-  const content = await markdownToHtml(post.content || "");
+  const content = await markdownToHtml(post.content);
 
   return {
     props: {
-      post: {
-        ...post,
-        content,
-      },
+      post: { ...post, content },
     },
   };
-}
+};
 
-export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"]);
+export const getStaticPaths = async () => {
+  const posts = getAllPosts(Topics.CleanCode, ["slug"]);
 
   return {
-    paths: posts.map((posts) => {
-      return {
-        params: {
-          slug: posts.slug,
-        },
-      };
-    }),
+    paths: posts.map((posts) => ({
+      params: {
+        slug: posts.slug,
+      },
+    })),
     fallback: false,
   };
-}
+};
