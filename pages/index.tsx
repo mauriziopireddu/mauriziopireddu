@@ -13,15 +13,17 @@ const Home = () => (
           Maurizio Pireddu
           <br />
           loves{" "}
-          <Link href="/clean-code" className="text-primary">
+          <Link href="/clean-code" className="text-primary underline italic">
             clean code
           </Link>
           <br />
           and{" "}
-          <Link href="/dirty-motorcycles" className="text-blue-400">
+          <Link
+            href="/dirty-motorcycles"
+            className="text-blue-400 underline italic"
+          >
             dirty motorcycles
           </Link>
-          .
         </h1>
       </div>
     </Flex>

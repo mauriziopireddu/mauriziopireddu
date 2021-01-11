@@ -2,12 +2,12 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 
 import { getPostBySlug, getAllPosts } from "lib/api";
-import Head from "next/head";
 
 import { markdownToHtml } from "lib/markdownToHtml";
 import { Post } from "types";
 import { Body } from "components/Post";
 import { Topics } from "types/topics";
+import { Footer } from "components/Footer";
 
 type Props = {
   post: Post;
@@ -26,12 +26,12 @@ const Article: React.FC<Props> = ({ post }) => {
   }
 
   return (
-    <article className="prose">
-      <Head>
-        <title>{post.title}</title>
-      </Head>
-      <Body>{post.content}</Body>
-    </article>
+    <>
+      <article className="prose">
+        <Body>{post.content}</Body>
+      </article>
+      <Footer />
+    </>
   );
 };
 

@@ -8,6 +8,6 @@ interface LinkProps {
 
 export const Link = ({ href, children, className }: LinkProps) => (
   <NextLink href={href}>
-    <a className={`italic underline font-bold ${className}`}>{children}</a>
+    <a className={`font-bold ${className}`}>{children}</a>
   </NextLink>
 );

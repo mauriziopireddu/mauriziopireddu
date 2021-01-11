@@ -1,7 +1,10 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import { getPostSlugs, postsDirectory } from "./utils";
+
+const postsDirectory = (topic: string) => join(process.cwd(), `blog/${topic}`);
+
+const getPostSlugs = (topic: string) => fs.readdirSync(postsDirectory(topic));
 
 export const getAllPosts = (topic: string, fields: string[] = []) => {
   const slugs = getPostSlugs(topic);

@@ -1,51 +1,49 @@
-import Head from "next/head";
 import React from "react";
 import { Footer } from "components/Footer";
 import { getAllPosts } from "lib/api";
 import { Post } from "types";
 import { Topics } from "types/topics";
 import { Link } from "components/Link";
+import { parseDate } from "lib/utils";
 
 interface Props {
   allPosts: Post[];
 }
 
-const CleanCode: React.FC<Props> = ({ allPosts }) => (
-  <>
-    <Head>
-      <title>Maurizio Pireddu | Loves clean code</title>
-    </Head>
+const now = new Date();
 
-    <div>
-      <Link href="/">
-        <h1 className="my-16 text-6xl font-semibold leading-tight">
-          Maurizio loves clean code
-        </h1>
-      </Link>
-      <ul>
-        {allPosts.map(({ slug, title, excerpt }) => (
-          <li key={slug} className="mb-8">
-            <div>
-              <Link
-                href={`/${Topics.CleanCode}/${slug}`}
-                className="text-2xl text-primary"
-              >
-                {title}
-              </Link>
-              <p>{excerpt}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <Footer />
-    </div>
-  </>
+const CleanCode: React.FC<Props> = ({ allPosts }) => (
+  <div>
+    <h1 className="text-6xl font-semibold leading-tight mb-4">Clean code</h1>
+    <ul>
+      {allPosts.map(({ slug, title, excerpt, date }) => (
+        <li key={slug} className="mb-8">
+          <div>
+            <Link
+              href={`/${Topics.CleanCode}/${slug}`}
+              className="text-2xl text-primary"
+            >
+              {title}
+            </Link>
+            <time className="ml-2">{parseDate(date)}</time>
+            <p>{excerpt}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <Footer />
+  </div>
 );
 
 export default CleanCode;
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts(Topics.CleanCode, ["slug", "title", "excerpt"]);
+  const allPosts = getAllPosts(Topics.CleanCode, [
+    "slug",
+    "title",
+    "excerpt",
+    "date",
+  ]);
 
   return { props: { allPosts } };
 };

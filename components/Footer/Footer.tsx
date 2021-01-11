@@ -6,7 +6,7 @@ import { Flex } from "components/Flex";
 export const Footer = () => (
   <>
     <hr className="my-10" />
-    <Flex as="footer" className="items-center justify-center">
+    <Flex as="footer" className="items-center justify-center mb-10">
       <Image
         className="rounded-full"
         src="/avatar.jpg"
@@ -15,7 +15,7 @@ export const Footer = () => (
         height="80px"
       ></Image>
       <Flex className="flex-col ml-5">
-        <p>Maurizio Pireddu is a developer currently living in Dublin.</p>
+        <p>Maurizio Pireddu is a developer currently living in Dublin</p>
         <div>
           <Link
             href="https://twitter.com/mauriziopireddu"
