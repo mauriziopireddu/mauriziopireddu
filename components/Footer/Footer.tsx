@@ -19,14 +19,14 @@ export const Footer = () => (
         <div>
           <Link
             href="https://twitter.com/mauriziopireddu"
-            className="text-primary"
+            className="text-red-500"
           >
             Twitter
           </Link>
           <span className="mx-2">|</span>
           <Link
             href="https://www.instagram.com/mauriziopireddu/"
-            className="text-primary"
+            className="text-red-500"
           >
             Instagram
           </Link>

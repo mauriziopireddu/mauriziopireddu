@@ -13,7 +13,7 @@ interface Props {
 
 const DirtyMotorcycles: React.FC<Props> = ({ allPosts }) => (
   <div>
-    <h1 className="text-6xl font-semibold leading-tight mb-4">
+    <h1 className="text-6xl font-semibold leading-tight my-8">
       Dirty motorcycles
     </h1>
     <ul>
@@ -22,7 +22,7 @@ const DirtyMotorcycles: React.FC<Props> = ({ allPosts }) => (
           <div>
             <Link
               href={`/${Topics.DirtyMotorcycles}/${slug}`}
-              className="text-2xl text-blue-400"
+              className="text-2xl text-dm"
             >
               {title}
             </Link>
