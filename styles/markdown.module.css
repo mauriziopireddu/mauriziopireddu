@@ -39,15 +39,19 @@
 }
 
 .markdown ul {
-  @apply text-base pl-8 list-disc;
+  @apply pl-8 list-disc my-4;
 }
 
 .markdown ol {
-  @apply text-base pl-8 list-decimal;
+  @apply pl-8 list-decimal my-4;
 }
 
 .markdown li + li {
   @apply mt-1;
+}
+
+.markdown p + p {
+  @apply mt-4;
 }
 
 .markdown li > p + p {

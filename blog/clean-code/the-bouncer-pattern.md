@@ -1,62 +1,64 @@
 ---
 title: "The bouncer pattern"
-date: "2020-12-29"
-excerpt: "The bouncer pattern, AKA early returns, is a simple technique to make your code more readable.
-You might find it particularly useful when your code has many if statement and you want to reduce the code indentation."
+date: "2021-01-18"
+excerpt: "The bouncer pattern is a very simple technique which can make your code more readable.
+It shines when it comes to pieces of code with many if/else statements and you want to get rid of some unwanted code indentation."
 ---
 
 # The bouncer pattern
 
-The bouncer pattern, AKA early returns, is a simple technique to make your code more readable.
-You might find it particularly useful when your code has many if statement and you want to reduce the code indentation.
+The bouncer pattern is a very simple technique which can make your code more readable.
+It shines when it comes to pieces of code with many if/else statements and you want to get rid of some unwanted code indentation.
 
 Let's have a look at the following snippet:
 
 ```js
-function breedGuesser(options) {
-  if (options) {
-    if (options.size === "Giant") {
-      return "Saint Bernard";
-    } else if (options.size === "Medium") {
-      return "Chow Chow";
+function updateEmail() {
+  if (isEmailValid) {
+    if (isEmailUnique) {
+      saveEmail();
+      return { error: false, message: "Email updated" };
     } else {
-      return "Corgi";
+      return { error: true, message: "Email already in use" };
     }
   } else {
-    return "Can't guess the breed without a hint 😢";
+    return { error: true, message: "Email is not valid" };
   }
 }
 ```
 
-As you can see, the important part of this function is wrapped inside the first if block.
+The function gets the job done, happy days.
 
-```js
-if (options) {
-  // juicy part
-}
-```
+But looking again at the code, you have that itch. It's your consciousness telling you that you can do better than that.
+
+So you look back at your code at you notice a couple of things:
+
+1. the validation is spread across all the function
+2. the happy path is hidden inside a jungle of if/else
+3. we have a lot of code indentation
 
 Let's apply the bouncer pattern.
-To do that, we just need to reverse the first if check.
+To do that, we just have to reverse the if checks which now acts as guards: the execution of the function is blocked when a check is not satisfied
 
 ```js
-function breedGuesser(options) {
-  if (!options) {
-    return "Can't guess the breed without a hint 😢";
+function updateEmail() {
+  if (!isEmailValid) {
+    return { error: true, message: "Email is not valid" };
   }
 
-  if (options.size === "Giant") {
-    return "Saint Bernard";
+  if (!isEmailUnique) {
+    return { error: true, message: "Email already in use" };
   }
 
-  if (options.size === "Medium") {
-    return "Chow Chow";
-  }
-
-  return "Corgi";
+  saveEmail();
+  return { error: false, message: "Email updated" };
 }
 ```
 
-The idea is to make all the possible validations as soon as possible.
+At voilà! After our small refactoring, we have:
 
-Another great benefit of this approach is that it allows to focus on what's really important, getting the invalid cases out of the way.
+1. the validation is all the beginning of the function
+2. the happy path is more visible at the bottom of the function
+3. the ugly indentation is wrong
+
+Bonus point: the code is clearer and shorter 💯
