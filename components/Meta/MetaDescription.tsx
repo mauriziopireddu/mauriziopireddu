@@ -8,12 +8,14 @@ interface Props {
   title: string;
   description?: string;
   overrideTitle?: boolean;
+  children?: React.ReactNode;
 }
 
 export const MetaDescription: React.FC<Props> = ({
   title: titlePrefix,
   description = defaultDescription,
   overrideTitle = false,
+  children,
 }) => {
   const title = overrideTitle
     ? titlePrefix
@@ -30,6 +32,7 @@ export const MetaDescription: React.FC<Props> = ({
       {/* Twitter */}
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
+      {children}
     </Head>
   );
 };

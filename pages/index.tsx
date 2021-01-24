@@ -3,12 +3,11 @@ import { Link } from "components/Link";
 import { Flex } from "components/Flex";
 import { MetaDescription } from "components/Meta";
 
+const title = "Maurizio Pireddu | Loves clean code and dirty motorcycles";
+
 const Home = () => (
   <>
-    <MetaDescription
-      title="Maurizio Pireddu | Loves clean code and dirty motorcycles"
-      overrideTitle
-    />
+    <MetaDescription title={title} overrideTitle/>
 
     <Flex as="main" className="h-screen text-6xl font-semibold leading-tight">
       <div className="m-auto">

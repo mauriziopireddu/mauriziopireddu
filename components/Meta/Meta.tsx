@@ -12,6 +12,9 @@ export const Meta = () => {
 
   const pages = breadcrumbs.map((breadcrumb) => breadcrumb.name).reverse();
   const path = [...pages, "Maurizio Pireddu"];
+  if (!pages.length) {
+    path.push("Loves clean code and dirty motorcycles");
+  }
   const title = path.join(" | ");
 
   return (
@@ -29,7 +32,6 @@ export const Meta = () => {
       <meta property="twitter:url" content={website} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:image" content={image} />
-      {/* <MetaDescription title={title} /> */}
     </Head>
   );
 };
