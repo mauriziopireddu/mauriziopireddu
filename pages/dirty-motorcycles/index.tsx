@@ -6,6 +6,7 @@ import { Topics } from "types/topics";
 import { Post } from "types";
 import { Link } from "components/Link";
 import { parseDate } from "lib/utils";
+import { MetaDescription } from "components/Meta/MetaDescription";
 
 interface Props {
   allPosts: Post[];
@@ -13,6 +14,7 @@ interface Props {
 
 const DirtyMotorcycles: React.FC<Props> = ({ allPosts = [] }) => (
   <div>
+    <MetaDescription />
     <h1 className="text-6xl font-semibold leading-tight my-8">
       Dirty motorcycles - coming soon
     </h1>
