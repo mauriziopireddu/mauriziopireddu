@@ -1,11 +1,15 @@
-name: Continuous Integration
+name: CI
 
-on: [pull_request]
+on:
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
 
 jobs:
-  buildAndTest:
-    name: Build and Test
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
 
