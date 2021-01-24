@@ -10,5 +10,6 @@ export const toSentenceCase = (text: string, separator = " ") => {
 
 export const parseDate = (date: string) =>
   new Intl.DateTimeFormat("en-US", {
+    // @ts-ignore
     dateStyle: "long",
   }).format(Date.parse(date));
