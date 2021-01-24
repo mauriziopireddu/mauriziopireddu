@@ -9,6 +9,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   useSentry();
   return (
     <>
+      <html lang="en" />
       <Meta />
       <div className="container mx-auto max-w-screen-lg px-4">
         <Breadcrumbs />
