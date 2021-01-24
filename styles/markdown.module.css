@@ -15,7 +15,7 @@
 }
 
 .markdown h1 {
-  @apply leading-tight text-4xl mt-5 mb-2;
+  @apply text-6xl font-semibold leading-tight my-8;
 }
 
 .markdown h2 {
@@ -39,7 +39,7 @@
 }
 
 .markdown p {
-  @apply mb-4;
+  @apply my-6;
 }
 
 .markdown ul {
@@ -57,7 +57,3 @@
 /* .markdown p + p {
   @apply mb-4;
 } */
-
-.markdown li > p + p {
-  @apply mt-6;
-}
