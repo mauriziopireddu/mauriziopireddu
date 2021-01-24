@@ -6,7 +6,7 @@ import { Topics } from "types/topics";
 import { Post } from "types";
 import { Link } from "components/Link";
 import { parseDate } from "lib/utils";
-import { CustomMeta } from "components/Meta/CustomMeta";
+import { MetaDescription } from "components/Meta";
 
 const title = "Dirty motorcycles";
 
@@ -16,7 +16,7 @@ interface Props {
 
 const DirtyMotorcycles: React.FC<Props> = ({ allPosts = [] }) => (
   <div>
-    <CustomMeta title={`${title} | Maurizio Pireddu`} />
+    <MetaDescription title={title} />
     <h1 className="text-6xl font-semibold leading-tight my-8">
       {title} - coming soon
     </h1>

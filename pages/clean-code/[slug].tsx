@@ -8,7 +8,7 @@ import { Post } from "types";
 import { Body } from "components/Post";
 import { Topics } from "types/topics";
 import { Footer } from "components/Footer";
-import { CustomMeta } from "components/Meta/CustomMeta";
+import { MetaDescription } from "components/Meta";
 
 type Props = {
   post: Post;
@@ -30,7 +30,7 @@ const Article: React.FC<Props> = ({ post }) => {
 
   return (
     <>
-      <CustomMeta title={title} description={excerpt} />
+      <MetaDescription title={title} description={excerpt} />
       <article className="prose">
         <Body>{content}</Body>
       </article>
