@@ -15,7 +15,7 @@ export const Footer = () => (
         height="80px"
       ></Image>
       <Flex className="flex-col ml-5">
-        <p>Maurizio Pireddu is a developer currently living in Dublin</p>
+        <p>Maurizio Pireddu is a web developer currently living in Dublin</p>
         <div>
           <Link
             href="https://twitter.com/mauriziopireddu"
