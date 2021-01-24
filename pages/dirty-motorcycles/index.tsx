@@ -11,7 +11,7 @@ interface Props {
   allPosts: Post[];
 }
 
-const DirtyMotorcycles: React.FC<Props> = ({ allPosts }) => (
+const DirtyMotorcycles: React.FC<Props> = ({ allPosts = [] }) => (
   <div>
     <h1 className="text-6xl font-semibold leading-tight my-8">
       Dirty motorcycles - coming soon
@@ -38,7 +38,7 @@ const DirtyMotorcycles: React.FC<Props> = ({ allPosts }) => (
 
 export default DirtyMotorcycles;
 
-export const getStaticProps = async () => {
+/* export const getStaticProps = async () => {
   const allPosts = getAllPosts(Topics.DirtyMotorcycles, [
     "slug",
     "title",
@@ -47,4 +47,4 @@ export const getStaticProps = async () => {
   ]);
 
   return { props: { allPosts } };
-};
+}; */
