@@ -5,6 +5,9 @@ import { Post } from "types";
 import { Topics } from "types/topics";
 import { Link } from "components/Link";
 import { parseDate } from "lib/utils";
+import { CustomMeta } from "components/Meta/CustomMeta";
+
+const title = "Clean code";
 
 interface Props {
   allPosts: Post[];
@@ -12,8 +15,9 @@ interface Props {
 
 const CleanCode: React.FC<Props> = ({ allPosts }) => (
   <>
+    <CustomMeta title={`${title} | Maurizio Pireddu`} />
     <div>
-      <h1 className="text-6xl font-medium leading-tight my-8">Clean code</h1>
+      <h1 className="text-6xl font-medium leading-tight my-8">{title}</h1>
       <ul>
         {allPosts.map(({ slug, title, excerpt, date }) => (
           <li key={slug} className="mb-8">

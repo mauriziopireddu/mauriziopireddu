@@ -1,12 +1,16 @@
 import React from "react";
 import Head from "next/head";
+import { defaultDescription } from "./Meta";
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
 }
 
-export const CustomMeta: React.FC<Props> = ({ title, description }) => (
+export const CustomMeta: React.FC<Props> = ({
+  title,
+  description = defaultDescription,
+}) => (
   <Head>
     {/* Primary Meta Tags */}
     <meta name="title" content={title} />
