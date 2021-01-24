@@ -1,14 +1,12 @@
 import Head from "next/head";
 import { Link } from "components/Link";
 import { Flex } from "components/Flex";
-import { MetaDescription } from "components/Meta/MetaDescription";
 
 const Home = () => (
   <>
     <Head>
       <title>Maurizio Pireddu | Loves clean code and dirty motorcycles</title>
     </Head>
-    <MetaDescription />
     <Flex as="main" className="h-screen text-6xl font-semibold leading-tight">
       <div className="m-auto">
         <h1>

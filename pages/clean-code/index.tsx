@@ -5,7 +5,6 @@ import { Post } from "types";
 import { Topics } from "types/topics";
 import { Link } from "components/Link";
 import { parseDate } from "lib/utils";
-import { MetaDescription } from "components/Meta/MetaDescription";
 
 interface Props {
   allPosts: Post[];
@@ -13,7 +12,6 @@ interface Props {
 
 const CleanCode: React.FC<Props> = ({ allPosts }) => (
   <>
-    <MetaDescription />
     <div>
       <h1 className="text-6xl font-medium leading-tight my-8">Clean code</h1>
       <ul>
