@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sentry/react": "^6.0.1",
+    "@sentry/tracing": "^6.0.1",
     "gray-matter": "^4.0.2",
     "next": "10.0.3",
     "prism-themes": "^1.5.0",
