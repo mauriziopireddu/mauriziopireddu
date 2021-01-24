@@ -37,7 +37,7 @@ const Article: React.FC<Props> = ({ post }) => {
 
 export default Article;
 
-type Params = {
+/* type Params = {
   params: { slug: string };
 };
 
@@ -68,4 +68,4 @@ export const getStaticPaths = async () => {
     })),
     fallback: false,
   };
-};
+}; */
