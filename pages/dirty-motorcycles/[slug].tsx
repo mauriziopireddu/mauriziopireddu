@@ -8,6 +8,7 @@ import { Post } from "types";
 import { Body } from "components/Post";
 import { Topics } from "types/topics";
 import { Footer } from "components/Footer";
+import { MetaDescription } from "components/Meta/MetaDescription";
 
 type Props = {
   post: Post;
@@ -27,6 +28,7 @@ const Article: React.FC<Props> = ({ post }) => {
 
   return (
     <>
+      <MetaDescription description={post.excerpt} />
       <article className="prose">
         <Body>{post.content}</Body>
       </article>
@@ -47,6 +49,7 @@ export const getStaticProps = async ({ params }: Params) => {
     "date",
     "slug",
     "content",
+    "excerpt",
   ]);
   const content = await markdownToHtml(post.content);
 
