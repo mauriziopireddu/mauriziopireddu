@@ -8,6 +8,7 @@ import { Post } from "types";
 import { Body } from "components/Post";
 import { Topics } from "types/topics";
 import { Footer } from "components/Footer";
+import { CustomMeta } from "components/Meta/CustomMeta";
 
 type Props = {
   post: Post;
@@ -25,10 +26,13 @@ const Article: React.FC<Props> = ({ post }) => {
     return <ErrorPage statusCode={404} />;
   }
 
+  const { title, excerpt, content } = post;
+
   return (
     <>
+      <CustomMeta title={title} description={excerpt} />
       <article className="prose">
-        <Body>{post.content}</Body>
+        <Body>{content}</Body>
       </article>
       <Footer />
     </>
