@@ -3,11 +3,11 @@
 }
 
 .markdown blockquote {
-  @apply my-6 relative p-4 bg-gray-200 text-xl italic border-l-4 border-blue-400;
+  @apply my-6 relative p-4 bg-gray-200 text-xl border-l-4 border-blue-400;
 }
 
-.markdown blockquote a {
-  @apply underline;
+.markdown a {
+  @apply text-blue-500 font-semibold hover:underline;
 }
 
 .markdown strong {
@@ -15,27 +15,31 @@
 }
 
 .markdown h1 {
-  @apply leading-tight text-4xl mb-4 mt-6 pb-2;
+  @apply leading-tight text-4xl mt-5 mb-2;
 }
 
 .markdown h2 {
-  @apply leading-tight text-2xl mb-4 mt-6 pb-2;
+  @apply leading-tight text-2xl mt-5 mb-2;
 }
 
 .markdown h3 {
-  @apply leading-snug text-lg mb-4 mt-6;
+  @apply leading-snug text-lg mt-5 mb-2;
 }
 
 .markdown h4 {
-  @apply leading-none text-base mb-4 mt-6;
+  @apply leading-none text-base mt-5 mb-2;
 }
 
 .markdown h5 {
-  @apply leading-tight text-sm mb-4 mt-6;
+  @apply leading-tight text-sm mt-5 mb-2;
 }
 
 .markdown h6 {
-  @apply leading-tight text-sm text-gray-600 mb-4 mt-6;
+  @apply leading-tight text-sm text-gray-600 mt-5 mb-2;
+}
+
+.markdown p {
+  @apply mb-4;
 }
 
 .markdown ul {
@@ -50,9 +54,9 @@
   @apply mt-1;
 }
 
-.markdown p + p {
-  @apply mt-4;
-}
+/* .markdown p + p {
+  @apply mb-4;
+} */
 
 .markdown li > p + p {
   @apply mt-6;

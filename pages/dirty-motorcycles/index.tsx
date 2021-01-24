@@ -14,7 +14,7 @@ interface Props {
 const DirtyMotorcycles: React.FC<Props> = ({ allPosts }) => (
   <div>
     <h1 className="text-6xl font-semibold leading-tight my-8">
-      Dirty motorcycles
+      Dirty motorcycles - coming soon
     </h1>
     <ul>
       {allPosts.map(({ slug, title, excerpt, date }) => (

@@ -1,13 +1,13 @@
 ---
 title: "The bouncer pattern"
-date: "2021-01-18"
-excerpt: "The bouncer pattern is a very simple technique which can make your code more readable.
-It shines when it comes to pieces of code with many if/else statements and you want to get rid of some unwanted code indentation."
+date: "2021-01-24"
+excerpt: "The bouncer pattern is a very simple technique that can make your code more readable.
+It shines when it comes to pieces of code with many if/else statements and you want to get rid of some unwanted code indentation"
 ---
 
 # The bouncer pattern
 
-The bouncer pattern is a very simple technique which can make your code more readable.
+The bouncer pattern is a very simple technique that can make your code more readable.
 It shines when it comes to pieces of code with many if/else statements and you want to get rid of some unwanted code indentation.
 
 Let's have a look at the following snippet:

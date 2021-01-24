@@ -12,7 +12,7 @@ interface Props {
 
 const CleanCode: React.FC<Props> = ({ allPosts }) => (
   <div>
-    <h1 className="text-6xl font-semibold leading-tight my-8">Clean code</h1>
+    <h1 className="text-6xl font-medium leading-tight my-8">Clean code</h1>
     <ul>
       {allPosts.map(({ slug, title, excerpt, date }) => (
         <li key={slug} className="mb-8">
