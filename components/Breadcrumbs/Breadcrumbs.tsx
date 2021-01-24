@@ -15,7 +15,7 @@ export const Breadcrumbs = () => {
 
   return (
     <nav className="bg-grey-light w-full my-5">
-      <ol className="flex">
+      <ol className="flex flex-wrap">
         <li className="inline">
           <Link href="/" className="font-bold">
             Home
