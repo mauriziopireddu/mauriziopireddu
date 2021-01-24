@@ -7,13 +7,17 @@ export const defaultDescription =
 interface Props {
   title: string;
   description?: string;
+  overrideTitle?: boolean;
 }
 
 export const MetaDescription: React.FC<Props> = ({
   title: titlePrefix,
   description = defaultDescription,
+  overrideTitle = false,
 }) => {
-  const title = `${titlePrefix} | Maurizio Pireddu`;
+  const title = overrideTitle
+    ? titlePrefix
+    : `${titlePrefix} | Maurizio Pireddu`;
   return (
     <Head>
       {/* Primary Meta Tags */}

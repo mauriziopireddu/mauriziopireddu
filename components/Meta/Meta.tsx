@@ -29,7 +29,7 @@ export const Meta = () => {
       <meta property="twitter:url" content={website} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:image" content={image} />
-      <MetaDescription title={title} />
+      {/* <MetaDescription title={title} /> */}
     </Head>
   );
 };
