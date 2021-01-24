@@ -6,7 +6,9 @@ import { Topics } from "types/topics";
 import { Post } from "types";
 import { Link } from "components/Link";
 import { parseDate } from "lib/utils";
-import { MetaDescription } from "components/Meta/MetaDescription";
+import { MetaDescription } from "components/Meta";
+
+const title = "Dirty motorcycles";
 
 interface Props {
   allPosts: Post[];
@@ -14,9 +16,9 @@ interface Props {
 
 const DirtyMotorcycles: React.FC<Props> = ({ allPosts = [] }) => (
   <div>
-    <MetaDescription />
+    <MetaDescription title={title} />
     <h1 className="text-6xl font-semibold leading-tight my-8">
-      Dirty motorcycles - coming soon
+      {title} - coming soon
     </h1>
     <ul>
       {allPosts.map(({ slug, title, excerpt, date }) => (

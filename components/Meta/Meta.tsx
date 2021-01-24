@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useBreadcrumbs } from "components/Breadcrumbs";
+import { MetaDescription } from "./MetaDescription";
 
 const image = "/avatar.jpg";
 const website = "https://www.mauriziopireddu.com";
@@ -28,6 +29,7 @@ export const Meta = () => {
       <meta property="twitter:url" content={website} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:image" content={image} />
+      {/* <MetaDescription title={title} /> */}
     </Head>
   );
 };
