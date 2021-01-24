@@ -32,6 +32,10 @@ export const Meta = () => {
       <meta property="twitter:url" content={website} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:image" content={image} />
+      <meta
+        name="google-site-verification"
+        content="DeqQrRF-StG33O_IOy2wdL8vzYeta0yJZ91SlAufieQ"
+      />
     </Head>
   );
 };
