@@ -11,7 +11,10 @@ export const useBreadcrumbs = (router: NextRouter) => {
   const [breadcrumbs, setBreadcrumbs] = useState<Breadcrumb[]>([]);
 
   useEffect(() => {
-    const path = router.asPath.split("/").filter((subPath) => subPath.length);
+    const [pathWithoutQueryParam] = router.asPath.split("?");
+    const path = pathWithoutQueryParam
+      .split("/")
+      .filter((subPath) => subPath.length);
 
     const pathArray = path.map((subPath, index) => ({
       name: toSentenceCase(subPath, "-"),
