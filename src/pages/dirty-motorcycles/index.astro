@@ -1,0 +1,16 @@
+---
+import Posts from "@layouts/Posts.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const cleanCodePosts = posts.filter(
+  post => post.data.category === "dirty-motorcycles"
+);
+---
+
+<Posts
+  posts={cleanCodePosts}
+  pageNum={1}
+  totalPages={cleanCodePosts.length}
+  pageTitle="Dirty Motorcycles"
+/>
