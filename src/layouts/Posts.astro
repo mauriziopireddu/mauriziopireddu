@@ -18,6 +18,7 @@ export interface Props {
 
 const { pageNum, totalPages, posts, pageTitle = "Posts" } = Astro.props;
 
+const shouldShowPagination = false && totalPages > 1; // temp disable pagination
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
 ---
@@ -35,7 +36,7 @@ const next = pageNum < totalPages ? "" : "disabled";
   </Main>
 
   {
-    totalPages > 1 && (
+    shouldShowPagination && (
       <nav class="pagination-wrapper" aria-label="Pagination">
         <LinkButton
           disabled={prev === "disabled"}
